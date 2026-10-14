@@ -1,17 +1,19 @@
 package ressources;
 
 import entities.Option;
+import filtres.Secured;
 import metiers.OptionBusiness;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
-
+@Secured
 @Path("/options")
 public class OptionRessource {
 
-    OptionBusiness optionBusiness = new OptionBusiness();
+
+    public static OptionBusiness optionBusiness = new OptionBusiness();
 
     // GET /options/list
     @GET
@@ -75,4 +77,5 @@ public class OptionRessource {
                 .entity("Option with code " + code + " not found")
                 .build();
     }
+
 }
